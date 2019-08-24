@@ -54,14 +54,19 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="datastructure">
+  <meta name="description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中序遍历建立线索二叉树">
 <meta property="og:url" content="http://yoursite.com/2019/08/24/datastructure/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-24T12:28:32.150Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-a0a90c51436b4892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-24T13:28:41.461Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="datastructure">
+<meta name="twitter:title" content="中序遍历建立线索二叉树">
+<meta name="twitter:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-a0a90c51436b4892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <link rel="canonical" href="http://yoursite.com/2019/08/24/datastructure/">
 
 
@@ -76,7 +81,7 @@
   };
 </script>
 
-  <title>datastructure | Hexo</title>
+  <title>中序遍历建立线索二叉树 | Hexo</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -205,7 +210,7 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">datastructure
+        <h1 class="post-title" itemprop="name headline">中序遍历建立线索二叉树
 
           
         </h1>
@@ -221,8 +226,12 @@
                 
               
 
-              <time title="Created: 2019-08-24 20:28:32" itemprop="dateCreated datePublished" datetime="2019-08-24T20:28:32+08:00">2019-08-24</time>
+              <time title="Created: 2019-08-24 20:28:32 / Modified: 21:28:41" itemprop="dateCreated datePublished" datetime="2019-08-24T20:28:32+08:00">2019-08-24</time>
             </span>
+          
+            
+
+            
           
 
           
@@ -236,7 +245,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>为什么使用中序遍历来建立线索二叉树？</p>
+<p>因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。</p>
+<p>中序遍历线索二叉树的特点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-a0a90c51436b4892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>这里需要理解一下指针不为线索时的情况（中序遍历）</p>
+<p>建立代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThread</span><span class="params">(ThreadTree &amp;p,ThreadTree &amp;pre)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		InThread(p-&gt;lchild,pre);</span><br><span class="line">		<span class="keyword">if</span> (p-&gt;lchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			p-&gt;lchild = pre;</span><br><span class="line">			p-&gt;tap=<span class="number">1</span>;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (pre!=<span class="literal">NULL</span> &amp;&amp; p-&gt;rchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			pre-&gt;rchild = p;</span><br><span class="line">			pre-&gt;rtag = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		pre = p;</span><br><span class="line">		InThread(p-&gt;rchild,pre);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。</p>
+
     </div>
 
     
