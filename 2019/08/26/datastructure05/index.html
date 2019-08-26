@@ -54,20 +54,25 @@
   };
 </script>
 
-  <meta name="description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+  <meta name="description" content="并查集是一种简单的集合表示使用树的双亲表示法作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数 操作如下      将集合中的所有元素初始化为只有一个单元素的子集合当集合变为一下情况时，存储结构变化如下  0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。3的双亲结点为2，所以双亲值为2。剩余元素以此类推 代码实现并查集的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中序遍历建立线索二叉树">
-<meta property="og:url" content="http://yoursite.com/2019/08/24/datastructure/index.html">
+<meta property="og:title" content="树的应用—并查集">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/datastructure05/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+<meta property="og:description" content="并查集是一种简单的集合表示使用树的双亲表示法作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数 操作如下      将集合中的所有元素初始化为只有一个单元素的子集合当集合变为一下情况时，存储结构变化如下  0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。3的双亲结点为2，所以双亲值为2。剩余元素以此类推 代码实现并查集的">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true">
-<meta property="og:updated_time" content="2019-08-24T13:51:27.930Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-b586d179b512da0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-a297a43198e898db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-413cfa84762a44a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-db00db20e38cd18d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-ba93aa57b87e548b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-f764bfe0622a8d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-26T08:59:48.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中序遍历建立线索二叉树">
-<meta name="twitter:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
-<meta name="twitter:image" content="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true">
-  <link rel="canonical" href="http://yoursite.com/2019/08/24/datastructure/">
+<meta name="twitter:title" content="树的应用—并查集">
+<meta name="twitter:description" content="并查集是一种简单的集合表示使用树的双亲表示法作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数 操作如下      将集合中的所有元素初始化为只有一个单元素的子集合当集合变为一下情况时，存储结构变化如下  0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。3的双亲结点为2，所以双亲值为2。剩余元素以此类推 代码实现并查集的">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-b586d179b512da0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/datastructure05/">
 
 
 <script id="page-configurations">
@@ -81,7 +86,7 @@
   };
 </script>
 
-  <title>中序遍历建立线索二叉树 | Hexo</title>
+  <title>树的应用—并查集 | Hexo</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -218,7 +223,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/datastructure/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -230,7 +235,7 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">中序遍历建立线索二叉树
+        <h1 class="post-title" itemprop="name headline">树的应用—并查集
 
           
         </h1>
@@ -246,7 +251,7 @@
                 
               
 
-              <time title="Created: 2019-08-24 20:28:32 / Modified: 21:51:27" itemprop="dateCreated datePublished" datetime="2019-08-24T20:28:32+08:00">2019-08-24</time>
+              <time title="Created: 2019-08-26 16:58:07 / Modified: 16:59:48" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:07+08:00">2019-08-26</time>
             </span>
           
             
@@ -265,13 +270,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>为什么使用中序遍历来建立线索二叉树？</p>
-<p>因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。</p>
-<p>中序遍历线索二叉树的特点<br><img src="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true" alt="线索二叉树示意图"><br>这里需要理解一下指针不为线索时的情况（中序遍历）</p>
-<p>建立代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThread</span><span class="params">(ThreadTree &amp;p,ThreadTree &amp;pre)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		InThread(p-&gt;lchild,pre);</span><br><span class="line">		<span class="keyword">if</span> (p-&gt;lchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			p-&gt;lchild = pre;</span><br><span class="line">			p-&gt;tap=<span class="number">1</span>;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (pre!=<span class="literal">NULL</span> &amp;&amp; p-&gt;rchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			pre-&gt;rchild = p;</span><br><span class="line">			pre-&gt;rtag = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		pre = p;</span><br><span class="line">		InThread(p-&gt;rchild,pre);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>并查集是一种简单的集合表示<br>使用树的<strong>双亲表示法</strong>作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数</p>
+<p>操作如下    </p>
+<ul>
+<li>将集合中的所有元素初始化为只有一个单元素的子集合<br><img src="https://upload-images.jianshu.io/upload_images/8889168-b586d179b512da0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-a297a43198e898db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"><br>当集合变为一下情况时，存储结构变化如下<br><img src="https://upload-images.jianshu.io/upload_images/8889168-413cfa84762a44a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></li>
+</ul>
+<p>0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。<br>3的双亲结点为2，所以双亲值为2。<br><strong>剩余元素以此类推</strong></p>
+<p>代码实现并查集的操作<br><strong>这里的S数组存储的是并查集里双亲结点的下标</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 100</span></span><br><span class="line"><span class="keyword">int</span>  UFset[SIZE]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Initial</span><span class="params">(<span class="keyword">int</span> S[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		S[i] = <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">//要找出的是x元素所在树的根结点，因为根结点双亲值为负</span></span><br><span class="line">	<span class="keyword">while</span>(S[x]&gt;=<span class="number">0</span>)</span><br><span class="line">		x = S[x];</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> Root1,<span class="keyword">int</span> Root2)</span></span>&#123;<span class="comment">//合并就是把Roo2子集变为Root1的子集</span></span><br><span class="line">	S[Root2] = Root1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。</p>
+<p>合并操作图解<br><img src="https://upload-images.jianshu.io/upload_images/8889168-db00db20e38cd18d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-ba93aa57b87e548b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Root1为0，Root2为1"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-f764bfe0622a8d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="合并操作之后S数组的变化"></p>
 
     </div>
 
@@ -288,8 +296,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/23/hello-world/" rel="next" title="L1nxi的博客">
-                  <i class="fa fa-chevron-left"></i> L1nxi的博客
+                <a href="/2019/08/26/datastructure04/" rel="next" title="树和森林的遍历">
+                  <i class="fa fa-chevron-left"></i> 树和森林的遍历
                 </a>
               
             </div>
@@ -298,8 +306,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/24/datastructure01/" rel="prev" title="数据结构里的malloc函数">
-                  数据结构里的malloc函数 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/26/datastructure06/" rel="prev" title="datastructure06">
+                  datastructure06 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

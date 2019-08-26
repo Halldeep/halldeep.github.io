@@ -80,6 +80,15 @@
   
 
 
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d1ab76c370a6935b5beba43636444dcd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -151,7 +160,18 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
 
   </li>
       
@@ -186,6 +206,316 @@
           <div id="content" class="content">
             
   <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/26/datastructure06/" class="post-title-link" itemprop="url">datastructure06</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-26 16:58:13" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:13+08:00">2019-08-26</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure05/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/26/datastructure05/" class="post-title-link" itemprop="url">树的应用—并查集</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-26 16:58:07 / Modified: 16:59:48" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:07+08:00">2019-08-26</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>并查集是一种简单的集合表示<br>使用树的<strong>双亲表示法</strong>作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数</p>
+<p>操作如下    </p>
+<ul>
+<li>将集合中的所有元素初始化为只有一个单元素的子集合<br><img src="https://upload-images.jianshu.io/upload_images/8889168-b586d179b512da0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-a297a43198e898db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"><br>当集合变为一下情况时，存储结构变化如下<br><img src="https://upload-images.jianshu.io/upload_images/8889168-413cfa84762a44a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></li>
+</ul>
+<p>0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。<br>3的双亲结点为2，所以双亲值为2。<br><strong>剩余元素以此类推</strong></p>
+<p>代码实现并查集的操作<br><strong>这里的S数组存储的是并查集里双亲结点的下标</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 100</span></span><br><span class="line"><span class="keyword">int</span>  UFset[SIZE]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Initial</span><span class="params">(<span class="keyword">int</span> S[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		S[i] = <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">//要找出的是x元素所在树的根结点，因为根结点双亲值为负</span></span><br><span class="line">	<span class="keyword">while</span>(S[x]&gt;=<span class="number">0</span>)</span><br><span class="line">		x = S[x];</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> Root1,<span class="keyword">int</span> Root2)</span></span>&#123;<span class="comment">//合并就是把Roo2子集变为Root1的子集</span></span><br><span class="line">	S[Root2] = Root1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>合并操作图解<br><img src="https://upload-images.jianshu.io/upload_images/8889168-db00db20e38cd18d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-ba93aa57b87e548b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Root1为0，Root2为1"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-f764bfe0622a8d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="合并操作之后S数组的变化"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/26/datastructure04/" class="post-title-link" itemprop="url">树和森林的遍历</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-26 16:58:01 / Modified: 16:59:28" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:01+08:00">2019-08-26</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>#####树的遍历</p>
+<ul>
+<li>先根遍历<br>若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树<br><img src="https://upload-images.jianshu.io/upload_images/8889168-d71244e6eb65d6ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br>先根遍历：RADEBCFGHK<br>将其转化为二叉树之后，先序遍历：RADEBCFGHK<br>######树的先根遍历序列与这棵树对应二叉树的先序遍历序列相同</li>
+<li>后根遍历<br>若树非空，则先按从左到右的顺序遍历根结点的每颗子树，再访问根结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-33a28fdbea486a00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br>后根遍历序列：DEABGHKFCR<br>将其转化为二叉树之后，中序遍历：DEABGHKFCR<br>######树的后根遍历序列与这棵树对应二叉树的中序遍历序列相同</li>
+<li>这里没有中根遍历是因为树并不是像二叉树一样分为左右子树，无法中根遍历*</li>
+<li>层次遍历<br>按照标号的顺序，由上至下，由左至右的顺序，一层一层遍历</li>
+</ul>
+<p>#####森林的遍历</p>
+<ul>
+<li>先序遍历<br>######等同于将森林转化为二叉树之后的先序遍历</li>
+<li>中序遍历<br>######等同于将森林转化为二叉树之后的中序遍历<br>内容过于简单，不再多余赘述了  </li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/26/datastructure03/" class="post-title-link" itemprop="url">森林，树，二叉树转化</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-26 16:57:55 / Modified: 16:59:02" itemprop="dateCreated datePublished" datetime="2019-08-26T16:57:55+08:00">2019-08-26</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则<br>每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
+<p>森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="森林"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
         <article itemscope itemtype="http://schema.org/Article">
   
   
@@ -548,7 +878,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

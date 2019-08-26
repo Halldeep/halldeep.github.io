@@ -54,20 +54,23 @@
   };
 </script>
 
-  <meta name="description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+  <meta name="description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点  森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中序遍历建立线索二叉树">
-<meta property="og:url" content="http://yoursite.com/2019/08/24/datastructure/index.html">
+<meta property="og:title" content="森林，树，二叉树转化">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/datastructure03/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
+<meta property="og:description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点  森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true">
-<meta property="og:updated_time" content="2019-08-24T13:51:27.930Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-26T08:59:02.745Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中序遍历建立线索二叉树">
-<meta name="twitter:description" content="为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;amp;p,ThreadTree &amp;amp;pre)&amp;#123;	if(p">
-<meta name="twitter:image" content="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true">
-  <link rel="canonical" href="http://yoursite.com/2019/08/24/datastructure/">
+<meta name="twitter:title" content="森林，树，二叉树转化">
+<meta name="twitter:description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点  森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/datastructure03/">
 
 
 <script id="page-configurations">
@@ -81,7 +84,7 @@
   };
 </script>
 
-  <title>中序遍历建立线索二叉树 | Hexo</title>
+  <title>森林，树，二叉树转化 | Hexo</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -218,7 +221,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/datastructure/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -230,7 +233,7 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">中序遍历建立线索二叉树
+        <h1 class="post-title" itemprop="name headline">森林，树，二叉树转化
 
           
         </h1>
@@ -246,7 +249,7 @@
                 
               
 
-              <time title="Created: 2019-08-24 20:28:32 / Modified: 21:51:27" itemprop="dateCreated datePublished" datetime="2019-08-24T20:28:32+08:00">2019-08-24</time>
+              <time title="Created: 2019-08-26 16:57:55 / Modified: 16:59:02" itemprop="dateCreated datePublished" datetime="2019-08-26T16:57:55+08:00">2019-08-26</time>
             </span>
           
             
@@ -265,13 +268,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>为什么使用中序遍历来建立线索二叉树？</p>
-<p>因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。</p>
-<p>中序遍历线索二叉树的特点<br><img src="https://github.com/Halldeep/halldeep.github.io/blob/master/images/8889168-a0a90c51436b4892.png?raw=true" alt="线索二叉树示意图"><br>这里需要理解一下指针不为线索时的情况（中序遍历）</p>
-<p>建立代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThread</span><span class="params">(ThreadTree &amp;p,ThreadTree &amp;pre)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		InThread(p-&gt;lchild,pre);</span><br><span class="line">		<span class="keyword">if</span> (p-&gt;lchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			p-&gt;lchild = pre;</span><br><span class="line">			p-&gt;tap=<span class="number">1</span>;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (pre!=<span class="literal">NULL</span> &amp;&amp; p-&gt;rchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			pre-&gt;rchild = p;</span><br><span class="line">			pre-&gt;rtag = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		pre = p;</span><br><span class="line">		InThread(p-&gt;rchild,pre);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。</p>
+        <p>树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则<br>每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
+<p>森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="森林"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
 
     </div>
 
@@ -288,8 +288,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/23/hello-world/" rel="next" title="L1nxi的博客">
-                  <i class="fa fa-chevron-left"></i> L1nxi的博客
+                <a href="/2019/08/24/datastructure02/" rel="next" title="malloc函数的补充">
+                  <i class="fa fa-chevron-left"></i> malloc函数的补充
                 </a>
               
             </div>
@@ -298,8 +298,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/24/datastructure01/" rel="prev" title="数据结构里的malloc函数">
-                  数据结构里的malloc函数 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/26/datastructure04/" rel="prev" title="树和森林的遍历">
+                  树和森林的遍历 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
