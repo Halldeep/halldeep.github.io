@@ -54,14 +54,20 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="datastructure06">
+  <meta name="description" content="二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点  若左子树非空，则左子树上所有结点值均小于根结点的值 若右子树非空，则右子树上所有结点值均大于根结点的值 注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的* 左，右子树本身也是一颗二叉排序树  二叉排序树进行中序遍历后，序列即为一个递增的有序序列 查找操作二叉树非空时，查找根结点，若相等则查找成功；若不等，则小于根结点查左子树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树的应用—二叉排序树">
 <meta property="og:url" content="http://yoursite.com/2019/08/26/datastructure06/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点  若左子树非空，则左子树上所有结点值均小于根结点的值 若右子树非空，则右子树上所有结点值均大于根结点的值 注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的* 左，右子树本身也是一颗二叉排序树  二叉排序树进行中序遍历后，序列即为一个递增的有序序列 查找操作二叉树非空时，查找根结点，若相等则查找成功；若不等，则小于根结点查左子树">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-26T08:58:13.625Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-169685d0bde0d130.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-be94d83fd340aff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-26T09:44:15.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="datastructure06">
+<meta name="twitter:title" content="树的应用—二叉排序树">
+<meta name="twitter:description" content="二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点  若左子树非空，则左子树上所有结点值均小于根结点的值 若右子树非空，则右子树上所有结点值均大于根结点的值 注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的* 左，右子树本身也是一颗二叉排序树  二叉排序树进行中序遍历后，序列即为一个递增的有序序列 查找操作二叉树非空时，查找根结点，若相等则查找成功；若不等，则小于根结点查左子树">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-169685d0bde0d130.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <link rel="canonical" href="http://yoursite.com/2019/08/26/datastructure06/">
 
 
@@ -76,7 +82,7 @@
   };
 </script>
 
-  <title>datastructure06 | Hexo</title>
+  <title>树的应用—二叉排序树 | Hexo</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -225,7 +231,7 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">datastructure06
+        <h1 class="post-title" itemprop="name headline">树的应用—二叉排序树
 
           
         </h1>
@@ -241,8 +247,12 @@
                 
               
 
-              <time title="Created: 2019-08-26 16:58:13" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:13+08:00">2019-08-26</time>
+              <time title="Created: 2019-08-26 16:58:13 / Modified: 17:44:15" itemprop="dateCreated datePublished" datetime="2019-08-26T16:58:13+08:00">2019-08-26</time>
             </span>
+          
+            
+
+            
           
 
           
@@ -256,7 +266,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点</p>
+<ul>
+<li>若左子树非空，则左子树上所有结点值均小于根结点的值</li>
+<li>若右子树非空，则右子树上所有结点值均大于根结点的值</li>
+<li>注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的*</li>
+<li>左，右子树本身也是一颗二叉排序树</li>
+</ul>
+<p>二叉排序树进行中序遍历后，序列即为一个递增的有序序列<br><img src="https://upload-images.jianshu.io/upload_images/8889168-169685d0bde0d130.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二叉排序树"></p>
+<p><strong>查找操作</strong><br>二叉树非空时，查找根结点，若相等则查找成功；<br>若不等，则小于根结点查左子树，大于查右子树<br>当查找到叶子结点还未找到，查找失败<br>代码实现，看懂就行<br><img src="https://upload-images.jianshu.io/upload_images/8889168-be94d83fd340aff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查找操作"><br><strong>插入操作</strong><br>若二叉排序树为空时，直接插入结点<br>若二叉排序树非空时，值小于根结点值时，插入左子树；大于插入右子树，等于不能插入。（使用递归来实现）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BST_Insert</span><span class="params">(BiTree &amp;T,KeyType k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		T = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BSTNode));</span><br><span class="line">		T-&gt;key = k;</span><br><span class="line">		T-&gt;lchild = T-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (k == T-&gt;key)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (k &lt; T-key)&#123;</span><br><span class="line">		<span class="keyword">return</span> BSTNode(T-&gt;lchild,k);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (k &gt; T-key)&#123;</span><br><span class="line">		<span class="keyword">return</span> BSTNode(T-&gt;rchild,k);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>构造二叉排序树</strong><br>构造的过程是一个动态的过程，不断的调用插入函数来进行构造<br>读入一个元素并建立结点，若二叉树为空将其作为根结点；<br>若二叉排序树非空，小于插左子树，大于插右子树。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Create_BST</span><span class="params">(BiTree &amp;T,keyType str[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="comment">//str存放插入的元素，n为插入的个数</span></span><br><span class="line">	 T = <span class="literal">NULL</span>;</span><br><span class="line">	 <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	 <span class="keyword">while</span>(i&lt;n)&#123;</span><br><span class="line">	 	BST_Insert(T,str[i]);</span><br><span class="line">	 	i++;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除</strong></p>
+<ul>
+<li>若删除结点为叶子结点，则直接删除</li>
+<li>若删除结点z有一颗子树y，那么选取这棵子树y代替该结点z的位置</li>
+<li>若删除结点z有两颗子树，直接让z的中序遍历直接后继x，直接代替z的位置，然后执行删除x的操作，以此类推。最终会变成上面的两种情况。</li>
+</ul>
+<p><em>删除一个结点，然后再插入该结点，所得到的二叉排序树可能会不一样</em></p>
+
     </div>
 
     
