@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风拂流苏亦浩然</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-08-27T13:32:29.744Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>L1nxi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉树的应用—平衡二叉树</title>
+    <link href="http://yoursite.com/2019/08/27/datastructure05/"/>
+    <id>http://yoursite.com/2019/08/27/datastructure05/</id>
+    <published>2019-08-27T09:08:54.000Z</published>
+    <updated>2019-08-27T13:32:29.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>平衡二叉树：AVL，在<strong>任意结点</strong>的平衡因子的绝对值不超过一。<br>平衡因子：左子树高度减去右子树高度</p><a id="more"></a><ul><li><p>计算高度为h的最小平衡二叉树的节点数Nh<br><img src="https://upload-images.jianshu.io/upload_images/8889168-a2f4ab6baaf7b3c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="递推规律"></p></li><li><p>平衡二叉树的判断<br>代码如下</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Judge_AVL</span><span class="params">(BiTree bt,<span class="keyword">int</span> &amp;Balance,<span class="keyword">int</span> &amp;h)</span></span>&#123;</span><br><span class="line"><span class="comment">//使用引用类型是因为要修改值的原因</span></span><br><span class="line"><span class="keyword">int</span> bl=<span class="number">0</span>,br=<span class="number">0</span>,hl=<span class="number">0</span>,hr=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (bt == <span class="literal">NULL</span>)&#123;</span><br><span class="line">h = <span class="number">0</span>;</span><br><span class="line">Balance = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (bt-&gt;lchild == <span class="literal">NULL</span>&amp;&amp;bt-&gt;rchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">h = <span class="number">1</span>;</span><br><span class="line">Balance = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">Judge_AVL(bt-&gt;lchild,bl,hl);</span><br><span class="line">Judge_AVL(bt-&gt;rchild,br,hr);</span><br><span class="line"><span class="keyword">if</span> (hl &gt; hr)&#123;<span class="comment">//判断那个高，选哪个做整个树的高度</span></span><br><span class="line">h = hl+<span class="number">1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">h = hr+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">abs</span>(hr-hl) &lt; <span class="number">2</span>&amp;&amp;bl = <span class="number">1</span>&amp;&amp;br = <span class="number">1</span>)&#123;</span><br><span class="line"><span class="comment">//根结点平衡，以及左右子树均平衡</span></span><br><span class="line">Balance = <span class="number">1</span>;</span><br><span class="line">&#125;<span class="keyword">else</span></span><br><span class="line">Balance = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><strong>平衡二叉树的插入</strong><br>基本的思想是先插入，后调整，<strong>注意每次调整一定要是最小不平衡子树方可</strong></p></li><li><p><strong>图解很好理解，多看几遍就好*</strong></p></li></ul><p><strong>方法1  LL平衡旋转（右单旋转）</strong><br>在结点A的左孩子的左子树上插入新节点（左子树的左右结点都可以，不受影响）<br>让B结点上去，B的右结点更改为A，B真正的有节点改为A的左结点，因为B本身是A的左结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-3d9560e6035dc8a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="右单旋转图解"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-d25a929e09b05de5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"></p><p><strong>方法2 RR平衡旋转（左单旋转）</strong><br>在结点A的右孩子的右子树上插入新节点（右子树的左右结点都可以，不受影响）<br> 跟右旋一致，可以先变化为方法1的树，操作结束后再变换为原树。<br><img src="https://upload-images.jianshu.io/upload_images/8889168-36eeb14a17988f46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="左单旋转图解"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-27fa3fe8ae90b6f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"></p><p><strong>方法3 LR平衡旋转（先左后右双旋转）</strong><br>在结点A的左孩子的右子树插入了新的结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-8c888915fa3c0260.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="先左后右双旋转"></p><p><img src="https://upload-images.jianshu.io/upload_images/8889168-0e9832ac9b04e25a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"></p><p><strong>方法4 RL平衡旋转（先右后左双旋转）</strong><br>在在结点A的右孩子的左子树插入了新的结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-66fa1bf9399fb8a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="先右后左双旋转"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-05454295073c1bce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平衡二叉树：AVL，在&lt;strong&gt;任意结点&lt;/strong&gt;的平衡因子的绝对值不超过一。&lt;br&gt;平衡因子：左子树高度减去右子树高度&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树的应用—二叉排序树</title>
+    <link href="http://yoursite.com/2019/08/26/datastructure04/"/>
+    <id>http://yoursite.com/2019/08/26/datastructure04/</id>
+    <published>2019-08-26T08:58:13.000Z</published>
+    <updated>2019-08-27T13:30:35.383Z</updated>
+    
+    <content type="html"><![CDATA[<p>二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点</p><ul><li>若左子树非空，则左子树上所有结点值均小于根结点的值</li><li>若右子树非空，则右子树上所有结点值均大于根结点的值</li><li>注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的*</li><li>左，右子树本身也是一颗二叉排序树<a id="more"></a>二叉排序树进行中序遍历后，序列即为一个递增的有序序列<br><img src="https://upload-images.jianshu.io/upload_images/8889168-169685d0bde0d130.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二叉排序树"></li></ul><p><strong>查找操作</strong><br>二叉树非空时，查找根结点，若相等则查找成功；<br>若不等，则小于根结点查左子树，大于查右子树<br>当查找到叶子结点还未找到，查找失败<br>代码实现，看懂就行<br><img src="https://upload-images.jianshu.io/upload_images/8889168-be94d83fd340aff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查找操作"><br><strong>插入操作</strong><br>若二叉排序树为空时，直接插入结点<br>若二叉排序树非空时，值小于根结点值时，插入左子树；大于插入右子树，等于不能插入。（使用递归来实现）</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BST_Insert</span><span class="params">(BiTree &amp;T,KeyType k)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">T = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BSTNode));</span><br><span class="line">T-&gt;key = k;</span><br><span class="line">T-&gt;lchild = T-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (k == T-&gt;key)&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (k &lt; T-key)&#123;</span><br><span class="line"><span class="keyword">return</span> BSTNode(T-&gt;lchild,k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (k &gt; T-key)&#123;</span><br><span class="line"><span class="keyword">return</span> BSTNode(T-&gt;rchild,k);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>构造二叉排序树</strong><br>构造的过程是一个动态的过程，不断的调用插入函数来进行构造<br>读入一个元素并建立结点，若二叉树为空将其作为根结点；<br>若二叉排序树非空，小于插左子树，大于插右子树。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Create_BST</span><span class="params">(BiTree &amp;T,keyType str[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="comment">//str存放插入的元素，n为插入的个数</span></span><br><span class="line"> T = <span class="literal">NULL</span>;</span><br><span class="line"> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">while</span>(i&lt;n)&#123;</span><br><span class="line"> BST_Insert(T,str[i]);</span><br><span class="line"> i++;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>删除</strong></p><ul><li>若删除结点为叶子结点，则直接删除</li><li>若删除结点z有一颗子树y，那么选取这棵子树y代替该结点z的位置</li><li>若删除结点z有两颗子树，直接让z的中序遍历直接后继x，直接代替z的位置，然后执行删除x的操作，以此类推。最终会变成上面的两种情况。</li></ul><p><em>删除一个结点，然后再插入该结点，所得到的二叉排序树可能会不一样</em><br> <!--more--></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若左子树非空，则左子树上所有结点值均小于根结点的值&lt;/li&gt;
+&lt;li&gt;若右子树非空，则右子树上所有结点值均大于根结点的值&lt;/li&gt;
+&lt;li&gt;注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的*&lt;/li&gt;
+&lt;li&gt;左，右子树本身也是一颗二叉排序树
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树的应用—并查集</title>
+    <link href="http://yoursite.com/2019/08/26/datastructure03/"/>
+    <id>http://yoursite.com/2019/08/26/datastructure03/</id>
+    <published>2019-08-26T08:58:07.000Z</published>
+    <updated>2019-08-27T13:30:40.549Z</updated>
+    
+    <content type="html"><![CDATA[<p>并查集是一种简单的集合表示<br>使用树的<strong>双亲表示法</strong>作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数</p><a id="more"></a><p>操作如下    </p><ul><li>将集合中的所有元素初始化为只有一个单元素的子集合<br><img src="https://upload-images.jianshu.io/upload_images/8889168-b586d179b512da0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-a297a43198e898db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"><br>当集合变为一下情况时，存储结构变化如下<br><img src="https://upload-images.jianshu.io/upload_images/8889168-413cfa84762a44a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></li></ul><p>0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。<br>3的双亲结点为2，所以双亲值为2。<br><strong>剩余元素以此类推</strong></p><p>代码实现并查集的操作<br><strong>这里的S数组存储的是并查集里双亲结点的下标</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 100</span></span><br><span class="line"><span class="keyword">int</span>  UFset[SIZE]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Initial</span><span class="params">(<span class="keyword">int</span> S[])</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i)</span><br><span class="line">&#123;</span><br><span class="line">S[i] = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">//要找出的是x元素所在树的根结点，因为根结点双亲值为负</span></span><br><span class="line"><span class="keyword">while</span>(S[x]&gt;=<span class="number">0</span>)</span><br><span class="line">x = S[x];</span><br><span class="line"><span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> Root1,<span class="keyword">int</span> Root2)</span></span>&#123;<span class="comment">//合并就是把Roo2子集变为Root1的子集</span></span><br><span class="line">S[Root2] = Root1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>合并操作图解<br><img src="https://upload-images.jianshu.io/upload_images/8889168-db00db20e38cd18d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/8889168-ba93aa57b87e548b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Root1为0，Root2为1"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-f764bfe0622a8d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="合并操作之后S数组的变化"></p><!--more-->]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;并查集是一种简单的集合表示&lt;br&gt;使用树的&lt;strong&gt;双亲表示法&lt;/strong&gt;作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树和森林的遍历</title>
+    <link href="http://yoursite.com/2019/08/26/datastructure02/"/>
+    <id>http://yoursite.com/2019/08/26/datastructure02/</id>
+    <published>2019-08-26T08:58:01.000Z</published>
+    <updated>2019-08-27T13:32:45.777Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>树的遍历</strong></p><ul><li>先根遍历<br>若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树<a id="more"></a><img src="https://upload-images.jianshu.io/upload_images/8889168-d71244e6eb65d6ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br>先根遍历：RADEBCFGHK<br>将其转化为二叉树之后，先序遍历：RADEBCFGHK</li><li><em>树的先根遍历序列与这棵树对应二叉树的先序遍历序列相同*</em></li><li>后根遍历<br>若树非空，则先按从左到右的顺序遍历根结点的每颗子树，再访问根结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-33a28fdbea486a00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br>后根遍历序列：DEABGHKFCR<br>将其转化为二叉树之后，中序遍历：DEABGHKFCR</li><li><em>树的后根遍历序列与这棵树对应二叉树的中序遍历序列相同*</em></li><li>这里没有中根遍历是因为树并不是像二叉树一样分为左右子树，无法中根遍历*</li><li>层次遍历<br>按照标号的顺序，由上至下，由左至右的顺序，一层一层遍历</li></ul><p><strong>森林的遍历</strong></p><ul><li>先序遍历</li><li><em>等同于将森林转化为二叉树之后的先序遍历*</em></li><li>中序遍历</li><li><em>等同于将森林转化为二叉树之后的中序遍历*</em><br>内容过于简单，不再多余赘述了  <!--more--></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;树的遍历&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先根遍历&lt;br&gt;若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>森林，树，二叉树转化</title>
+    <link href="http://yoursite.com/2019/08/26/datastructure01/"/>
+    <id>http://yoursite.com/2019/08/26/datastructure01/</id>
+    <published>2019-08-26T08:57:55.000Z</published>
+    <updated>2019-08-27T13:30:59.409Z</updated>
+    
+    <content type="html"><![CDATA[<p>树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则<br>每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p><p>森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点</p><p><img src="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="森林"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p><!--more-->]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则&lt;br&gt;每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中序遍历建立线索二叉树</title>
+    <link href="http://yoursite.com/2019/08/24/datastructure00/"/>
+    <id>http://yoursite.com/2019/08/24/datastructure00/</id>
+    <published>2019-08-24T12:28:32.000Z</published>
+    <updated>2019-08-27T13:31:03.082Z</updated>
+    
+    <content type="html"><![CDATA[<p>为什么使用中序遍历来建立线索二叉树？</p><p>因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。</p><a id="more"></a><p>中序遍历线索二叉树的特点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-a0a90c51436b4892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中序遍历线索二叉树"><br>这里需要理解一下指针不为线索时的情况（中序遍历）</p><p>建立代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThread</span><span class="params">(ThreadTree &amp;p,ThreadTree &amp;pre)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">InThread(p-&gt;lchild,pre);</span><br><span class="line"><span class="keyword">if</span> (p-&gt;lchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">p-&gt;lchild = pre;</span><br><span class="line">p-&gt;tap=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (pre!=<span class="literal">NULL</span> &amp;&amp; p-&gt;rchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">pre-&gt;rchild = p;</span><br><span class="line">pre-&gt;rtag = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">pre = p;</span><br><span class="line">InThread(p-&gt;rchild,pre);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。</p><!--more-->]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为什么使用中序遍历来建立线索二叉树？&lt;/p&gt;
+&lt;p&gt;因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874复习" scheme="http://yoursite.com/categories/874%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+</feed>
