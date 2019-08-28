@@ -54,25 +54,23 @@
   };
 </script>
 
-  <meta name="description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点">
-<meta name="keywords" content="数据结构">
+  <meta name="description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
+<meta name="keywords" content="概念理解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="森林，树，二叉树转化">
-<meta property="og:url" content="http://yoursite.com/2019/08/26/datastructure01/index.html">
+<meta property="og:title" content="malloc函数的理解">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/algorithm05/index.html">
 <meta property="og:site_name" content="风拂流苏亦浩然">
-<meta property="og:description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点">
+<meta property="og:description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-08-27T13:30:59.409Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8889168-38974a7e7f0e222f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-28T00:14:21.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="森林，树，二叉树转化">
-<meta name="twitter:description" content="树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="malloc函数的理解">
+<meta name="twitter:description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <link rel="alternate" href="/atom.xml" title="风拂流苏亦浩然" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/26/datastructure01/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/28/algorithm05/">
 
 
 <script id="page-configurations">
@@ -86,7 +84,7 @@
   };
 </script>
 
-  <title>森林，树，二叉树转化 | 风拂流苏亦浩然</title>
+  <title>malloc函数的理解 | 风拂流苏亦浩然</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -272,7 +270,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/datastructure01/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/algorithm05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="L1nxi">
@@ -284,7 +282,7 @@
       <meta itemprop="name" content="风拂流苏亦浩然">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">森林，树，二叉树转化
+        <h1 class="post-title" itemprop="name headline">malloc函数的理解
 
           
         </h1>
@@ -300,19 +298,11 @@
                 
               
 
-              <time title="创建时间：2019-08-26 16:57:55" itemprop="dateCreated datePublished" datetime="2019-08-26T16:57:55+08:00">2019-08-26</time>
+              <time title="创建时间：2019-08-28 08:04:53 / 修改时间：08:14:21" itemprop="dateCreated datePublished" datetime="2019-08-28T08:04:53+08:00">2019-08-28</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-27 21:30:59" itemprop="dateModified" datetime="2019-08-27T21:30:59+08:00">2019-08-27</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -321,7 +311,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/874复习/" itemprop="url" rel="index"><span itemprop="name">874复习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
 
                 
                 
@@ -340,15 +330,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则<br>每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点</p>
+        <p>在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。<br>先分享这样的一段程序.</p>
 <a id="more"></a>
-<p><img src="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
-<p>森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="森林"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="转化为二叉树"></p>
-<!--more-->
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;NODE,*pNode;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pNode Pa;</span><br><span class="line">    pNode Pb=(pNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));</span><br><span class="line">    <span class="comment">//printf("%d,%d,%d",Pa,Pa-&gt;data,Pa-&gt;next);</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d,%d"</span>,Pb,Pb-&gt;data,Pb-&gt;next);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<p>程序的输出结果是这样的<br><img src="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>如果把第一个printf取消注释的话<br>运行的结果是这样的<br><img src="http://upload-images.jianshu.io/upload_images/8889168-38974a7e7f0e222f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>由此可见malloc函数的作用<br>下面说一下我对这个函数的一点理解<br>malloc函数是为指向结构体的指针指向了堆内存里面的一个结构体变量，而这个结构体里面的值是系统自动分配的值。如果没用使用malloc函数，那么仅仅是开辟了一块栈内存空间，并没用一个可以指的结构体变量，换做Java来思考的话就相当于你并没有实例化对象，malloc就是实例化对象的一个过程。</p>
 
     </div>
 
@@ -375,7 +361,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+              <a href="/tags/概念理解/" rel="tag"># 概念理解</a>
             
           </div>
         
@@ -385,8 +371,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/24/datastructure00/" rel="next" title="中序遍历建立线索二叉树">
-                  <i class="fa fa-chevron-left"></i> 中序遍历建立线索二叉树
+                <a href="/2019/08/28/algorithm04/" rel="next" title="数据结构里简易的栈">
+                  <i class="fa fa-chevron-left"></i> 数据结构里简易的栈
                 </a>
               
             </div>
@@ -395,8 +381,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/26/datastructure02/" rel="prev" title="树和森林的遍历">
-                  树和森林的遍历 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/28/algorithm06/" rel="prev" title="malloc函数的理解补充">
+                  malloc函数的理解补充 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
