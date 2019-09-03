@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-31T14:52:50.777Z</updated>
+  <updated>2019-09-03T11:42:38.340Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,220 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图—应用（最小生成树）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure14/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure14/</id>
+    <published>2019-09-03T11:40:00.000Z</published>
+    <updated>2019-09-03T11:42:38.340Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>最小生成树</strong></p><ul><li>生成树：在连通图之中包含全部顶点的极小连通子图（也就是包含全部顶点，且边最少的子图）<br>（子图即是图中顶点属于原图顶点集的子集，边属于原图边集的子集）<a id="more"></a><img src="https://upload-images.jianshu.io/upload_images/8889168-afaa2e7f807ee886.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有环状结构不是生成树，非联通的图也不是生成树"></li><li><em>最小*</em>生成树：对于<strong>带权的无向连通图</strong>G，G的所有生成树之中边的权值之和最小的生成树，称之为最小生成树（MST）</li></ul><p><strong>最小生成树的性质</strong></p><ul><li>最小生成树不一定唯一，当出现<br>1：无向连通图G的各边值不唯一<br>2：G只有顶点数-1条边的时候</li><li><em>最小生成树是唯一的*</em></li><li>最小生成树的权值是唯一的，且是最小的</li><li>最小生成树的边数为顶点-1</li></ul><p><strong>生成最小生成树的算法</strong><br>1：Prim<br>直接上例子<br><img src="https://upload-images.jianshu.io/upload_images/8889168-33bfa4dd254a4302.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="首先在顶点集中任意选取一个顶点，这里选择顶点A"><br>min_weight数组存放的是顶点A到达其他顶点的权值，当没有连线时，距离设置为无穷，adjvex数组存放的是生成树的连接顺序，这里默认都为0<br><img src="https://upload-images.jianshu.io/upload_images/8889168-6f46e9c964b5e33a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选取上一步中min_weight数组里最小值所对应的边A-C，将C加入到生成树的顶点集"></p><ul><li>min_weight数组里C对应的位置改为0，因为C也可以到达B点，且距离比A-B更短，B对应的值更改为C-B的值，C可以到达D，D对应的值更改为C-D。</li><li>adjvex数组因为C连接到了A，C对应的值更改为A对应的下标，因为A的下标为0，与初始值相同，故没看出变化。<br><img src="https://upload-images.jianshu.io/upload_images/8889168-5cfc135f43f42f92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="以此类推，生成Prim算法下的最小生成树"></li></ul><p><strong>总结：Prim算法的时间复杂度为O（|V^2|）,与边的数量无关，故该算法适用于边稠密的图</strong></p><p>2：Kruskal<br>使用的时候需要两个辅助的方法</p><ul><li>堆排序</li><li>并查集</li></ul><p>直接使用例子<br><img src="https://upload-images.jianshu.io/upload_images/8889168-3622e5ac6771cabd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="堆排序把边按顺序排列，并查集置为-1"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-df73df562968dbc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="寻找权值最小的边，更改并查集的值"><br>选定值最小的边AC，将C与A连接，对应并查集里C的顶点值置为A所对应的数组下标。<br><img src="https://upload-images.jianshu.io/upload_images/8889168-32bf241611106e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第二条边加入"></p><p><strong>下一条边AB如果加入到生成树中，会产生回路，这里并查集的作用就体现了，如果要加入的边对应两个顶点在并查集里的根节点相同，那么就会产生回路，不能加入这条边。</strong></p><p><img src="https://upload-images.jianshu.io/upload_images/8889168-4334cdc11e727cba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终结果如下"></p><p><strong>总结：Kruskal算法的时间复杂度O（|E|log|E|），与顶点无关，更适用于稠密图</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;最小生成树&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生成树：在连通图之中包含全部顶点的极小连通子图（也就是包含全部顶点，且边最少的子图）&lt;br&gt;（子图即是图中顶点属于原图顶点集的子集，边属于原图边集的子集）
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—遍历（深度优先搜索）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure13/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure13/</id>
+    <published>2019-09-03T11:39:53.000Z</published>
+    <updated>2019-09-03T11:42:41.673Z</updated>
+    
+    <content type="html"><![CDATA[<p>深度优先搜索类似于树的先序遍历，其遵循的策略是尽可能深地去搜索一个图。同样也会用到辅助数组，该结构使用栈来进行操作。<br>没啥可写的，遇见题再过来补充吧</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;深度优先搜索类似于树的先序遍历，其遵循的策略是尽可能深地去搜索一个图。同样也会用到辅助数组，该结构使用栈来进行操作。&lt;br&gt;没啥可写的，遇见题再过来补充吧&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—遍历（广度优先搜索）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure12/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure12/</id>
+    <published>2019-09-03T11:39:48.000Z</published>
+    <updated>2019-09-03T11:42:30.022Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>广度优先搜索</strong></p><ul><li>首先访问起始点v</li><li>接着由出发点一次访问v的每一个未访问的邻接顶点 w1,w2…wi</li><li>然后依次访问w1,w2…wi的每一个未访问的邻接顶点</li><li>以此类推<a id="more"></a>实现的方法是使用<strong>队列+辅助数组</strong>，辅助数组的使用是为了避免重复访问同一个顶点，造成不必要的开销<br>该算法的空间复杂度是O（v），时间复杂度分为两种</li><li>邻接矩阵表示法：O（v^2）</li><li>邻接表表示法：O（v+e）</li><li><em>e为边的数量，v为顶点的数量*</em></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;广度优先搜索&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先访问起始点v&lt;/li&gt;
+&lt;li&gt;接着由出发点一次访问v的每一个未访问的邻接顶点 w1,w2…wi&lt;/li&gt;
+&lt;li&gt;然后依次访问w1,w2…wi的每一个未访问的邻接顶点&lt;/li&gt;
+&lt;li&gt;以此类推
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—存储及操作（邻接多重表）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure11/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure11/</id>
+    <published>2019-09-03T11:39:43.000Z</published>
+    <updated>2019-09-03T11:42:23.492Z</updated>
+    
+    <content type="html"><![CDATA[<p>无向图的一种链式存储结构</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-8dbe17b9f86732d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用邻接表存储无向图"><br>邻接表的缺点是：如果删除一条边，需要遍历整个表，找到对应的两个边表结点进行删除。操作效率较低。<br><img src="https://upload-images.jianshu.io/upload_images/8889168-757e64b79444ead6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多重邻接表的构成"><br>在这里的边表中，既要保存第一个顶点的相关信息，也要保存第二个顶点的相关信息。<br><strong>顶点表</strong></p><ul><li>data：存储此顶点的数据；</li><li>firstedge：指针域，用于指向同该顶点有直接关联的存储其他顶点的节点。</li></ul><p><strong>边表</strong></p><ul><li>ivex 和 jvex：数据域，分别存储图中各边两端的顶点所在数组中的位置下标；</li><li>ilink：指针域，指向下一个存储与 ivex 有直接关联顶点的节点；</li><li>jlink：指针域，指向下一个存储与 jvex 有直接关联顶点的节点；</li><li>info：指针域，用于存储与该顶点有关的其他信息，比如无向网中各边的权；</li><li>mark：标志域，用于标记此节点是否被操作过，例如在对图中顶点做遍历操作时，为了防止多次操作同一节点，mark 域为 0 表示还未被遍历；mark 为 1 表示该节点已被遍历；<br><img src="https://upload-images.jianshu.io/upload_images/8889168-498729ee359afc34.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无向图的一种链式存储结构&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—存储及操作（十字链表法）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure10/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure10/</id>
+    <published>2019-09-03T11:36:46.000Z</published>
+    <updated>2019-09-03T11:42:19.335Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>十字链表法</strong>是一种针对有向图的<strong>链式</strong>存储结构<br>在邻接表法里，找到顶点的出边是很容易的，但是找到顶点的入边却要遍历整个所有顶点的边表，很复杂。<br>但是十字链表里，寻找顶点的出边和入边都很容易</p><a id="more"></a><ul><li>顶点表的区域分别为：<br>入边表中第一个结点(那条边是指向该顶点的)<br>出边表中第一个结点(那条边是由该顶点出发的)</li><li>边表的区域分别为：<br>弧起点在顶点的下标，<br>弧终点在顶点表中的下标，</li><li><em>终点*</em>相同的一下条边</li><li><em>起点*</em>相同的下一条边<br>如果是网，还可以再增加一个weight域来存储权值。<br><img src="https://upload-images.jianshu.io/upload_images/8889168-5406f17d65c61b71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图解"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;十字链表法&lt;/strong&gt;是一种针对有向图的&lt;strong&gt;链式&lt;/strong&gt;存储结构&lt;br&gt;在邻接表法里，找到顶点的出边是很容易的，但是找到顶点的入边却要遍历整个所有顶点的边表，很复杂。&lt;br&gt;但是十字链表里，寻找顶点的出边和入边都很容易&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—存储及操作（邻接表法）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure09/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure09/</id>
+    <published>2019-09-03T11:36:39.000Z</published>
+    <updated>2019-09-03T11:42:13.686Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于边稀少的图（稀疏图）使用邻接矩阵法会产生大量空间浪费</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-8f12fececf1aa8e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><strong>邻接表法</strong><br>同样分为两个表：顶点表（采用顺序存储），边表（采用链式存储）<br><img src="https://upload-images.jianshu.io/upload_images/8889168-fff1e23111b72ac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图的邻接表"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-b0cbe0cd493d2e08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图的邻接表"><br><strong>邻接表法的特点</strong></p><ul><li>若G为无向图，存储空间为：边+二倍顶点</li><li>若G为无向图，存储空间为：边+顶点</li><li>邻接表更适合应用于稀疏图</li><li>若G为无向图，则结点的度为该结点边表的长度</li><li>若G为有向图，则结点的出度为该结点边表的长度，入度则需要遍历这个边表</li><li>邻接表不唯一</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于边稀少的图（稀疏图）使用邻接矩阵法会产生大量空间浪费&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图—存储及操作（邻接矩阵法）</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure08/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure08/</id>
+    <published>2019-09-03T11:36:33.000Z</published>
+    <updated>2019-09-03T11:42:07.651Z</updated>
+    
+    <content type="html"><![CDATA[<p>邻接矩阵就是把一个图的点集和边集，通过一二维矩阵的方式存储</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-bfc1f74643a7d7e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="邻接矩阵示意图"><br>邻接矩阵存储边的关系是，存在该边则值为1，不存在则值为0<br><img src="https://upload-images.jianshu.io/upload_images/8889168-d5410eb093451a07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="邻接矩阵法具体的存放方式"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-714e6d2da92c5c46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例：有向图"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-0df524b8852c27ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例：无向图"><br><strong>有权重的图（网）的存放方法：存在边在矩阵里存放的值即为权值，不存在边则在矩阵存放0/无穷</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-d132fd4b5771953e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="权重分配"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-0681a0ef81b0c475.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例"><br><strong>邻接矩阵法的性质</strong></p><ul><li>适用于稠密图，因为无论边是否存在，我们都为其申请存储空间</li><li>无向图的邻接矩阵为对称矩阵</li><li>无向图中第i行（或第i列）带权值元素的个数，为第i个顶点的度</li><li>有向图中第i行（第i列）带权值元素的个数，为第i个顶点的出度（入度）</li></ul><p>###图G的邻接矩阵为A，A的n次方的含义是？<br><strong>A^n[i][j]表示的是从顶点Vi到顶点Vj长度为n的路径条数</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-e1c8b24cb8f2ded2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="n=2时，n=3，4，5....以此类推即可"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;邻接矩阵就是把一个图的点集和边集，通过一二维矩阵的方式存储&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图的基本概念2</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure07/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure07/</id>
+    <published>2019-09-03T11:36:27.000Z</published>
+    <updated>2019-09-03T11:42:57.792Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>连通（无向图）与强连通（有向图）</strong></p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-2efaf60752c71da5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图与无向图之间的连通，强连通"><br><strong>连通图（无向图）与强连通图（有向图）</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-63bfa6e2d372f376.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="连通图与强连通图"></p><p><strong>常考考点</strong>：n个顶点的连通图(强连通图)最少有多少条边<br><img src="https://upload-images.jianshu.io/upload_images/8889168-deb61b30d53a93b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图，有向图的最少边数"><br><strong>连通分量与强连通分量</strong>：这里一定要搞明白<br><img src="https://upload-images.jianshu.io/upload_images/8889168-5400baec0e80c0cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图"><br>左边的图为原图，右边的四个为连通子图，我们要找的是连通分量=&gt;极大连通子图。在这里很清楚的看到圈出来的两个图，没有<strong>更大</strong>的连通子图，把它们包含起来。所以圈出来的就是<strong>极大连通子图</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-a8a02559510f54d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图"><br>右边的四个图为强连通图的强连通子图，圈出来的即为强连通分量=&gt;极大强连通子图<br><strong>结论：</strong></p><ul><li>如果原图是一个连通图或者强连通图，那么它的连通分量或者强连通分量都是与原图一样的。</li><li>如果原图不是一个连通图或者强连通图，那么它的连通分量或者强连通分量会有许多个</li></ul><p><strong>极小连通子图</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-cb6b58bef10a77a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极小连通子图示意图"><br><strong>生成树</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-d2a3fa2cd54d2b47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成树示意图"><br>这里注意一点，生成树是包含多有顶点的一个极小连通子图，而且是不唯一的。<br><strong>n个顶点图的生成树有n-1条边</strong></p><p><strong>生成森林</strong><br>连通图只能生成树，非连通图则可以生成森林<br><img src="https://upload-images.jianshu.io/upload_images/8889168-3ce2160044200bfa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成森林图示"></p><p><strong>顶点的度</strong><br>以该顶点为一个端点的边的数目<br><img src="https://upload-images.jianshu.io/upload_images/8889168-fc04afbc1fc7d49f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图和无向图的度"></p><ul><li>无向图中顶点的度就是连接该顶点的边数</li><li>有向图中顶点的度=出度+入度</li></ul><p><strong>网</strong><br>即每个边都有一个权值<br><img src="https://upload-images.jianshu.io/upload_images/8889168-84e550d14865cc1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网示意图"></p><p><strong>稠密图和稀疏图</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c384374bb5759bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="稠密图和稀疏图示意图"></p><p><strong>有向树</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-f394c196783d1e85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向树示意图"><br>有向树跟树的区别是：<strong>有向树是图</strong><br>若为树结构：第二层左边第一个结点的度为2<br>若为有向树结构：第二层左边第一个结点的度为3</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;连通（无向图）与强连通（有向图）&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图的基本概念1</title>
+    <link href="http://yoursite.com/2019/09/03/datastructure06/"/>
+    <id>http://yoursite.com/2019/09/03/datastructure06/</id>
+    <published>2019-09-03T11:36:22.000Z</published>
+    <updated>2019-09-03T11:43:00.415Z</updated>
+    
+    <content type="html"><![CDATA[<p>图是由顶点和边构成，定义如下</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-8d04fee3c35597fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图的定义"><br><strong><em>线性表，树可以为空，但是图不能为空</em></strong></p><p><strong>图的分类</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-1fcdb7b10345f8fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图，有向图"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-e8df36e8adaaf9bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单图，多重图"><br>注意第二个图A-&gt;B!=B-&gt;A因为它是有方向的，所以属于简单图</p><p><strong>完全图</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-62cbfefaae963196.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向完全图，有向完全图"></p><p><strong>子图</strong><br><img src="https://upload-images.jianshu.io/upload_images/8889168-13c4630b23490211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="子图定义"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-725dc9d71aade366.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常规子图"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-c9ae000bb02c70fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成子图，图中元素与原图一致"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-dd829800eddcc557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原图也是子图"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-1cf465c2afcc34ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="空集也是子图"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-31d1e79be8d6872d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不是子图的典例：这不是一个图"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;图是由顶点和边构成，定义如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
+    
+    
+      <category term="图" scheme="http://yoursite.com/tags/%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode的第14题</title>
@@ -282,78 +496,6 @@
     <summary type="html">
     
       &lt;p&gt;并查集是一种简单的集合表示&lt;br&gt;使用树的&lt;strong&gt;双亲表示法&lt;/strong&gt;作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
-    
-    
-      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树和森林的遍历</title>
-    <link href="http://yoursite.com/2019/08/26/datastructure02/"/>
-    <id>http://yoursite.com/2019/08/26/datastructure02/</id>
-    <published>2019-08-26T08:58:01.000Z</published>
-    <updated>2019-08-31T13:42:32.030Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>树的遍历</strong></p><ul><li>先根遍历<br>若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树<a id="more"></a><img src="https://upload-images.jianshu.io/upload_images/8889168-d71244e6eb65d6ea.png" alt="树"><br>先根遍历：RADEBCFGHK<br>将其转化为二叉树之后，先序遍历：RADEBCFGHK</li><li><em>树的先根遍历序列与这棵树对应二叉树的先序遍历序列相同*</em></li><li>后根遍历<br>若树非空，则先按从左到右的顺序遍历根结点的每颗子树，再访问根结点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-33a28fdbea486a00.png" alt="树"><br>后根遍历序列：DEABGHKFCR<br>将其转化为二叉树之后，中序遍历：DEABGHKFCR</li><li><em>树的后根遍历序列与这棵树对应二叉树的中序遍历序列相同*</em></li><li>这里没有中根遍历是因为树并不是像二叉树一样分为左右子树，无法中根遍历*</li><li>层次遍历<br>按照标号的顺序，由上至下，由左至右的顺序，一层一层遍历</li></ul><p><strong>森林的遍历</strong></p><ul><li>先序遍历</li><li><em>等同于将森林转化为二叉树之后的先序遍历*</em></li><li>中序遍历</li><li><em>等同于将森林转化为二叉树之后的中序遍历*</em><br>内容过于简单，不再多余赘述了  <!--more--></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;树的遍历&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先根遍历&lt;br&gt;若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树
-    
-    </summary>
-    
-    
-      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
-    
-    
-      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>森林，树，二叉树转化</title>
-    <link href="http://yoursite.com/2019/08/26/datastructure01/"/>
-    <id>http://yoursite.com/2019/08/26/datastructure01/</id>
-    <published>2019-08-26T08:57:55.000Z</published>
-    <updated>2019-08-31T13:42:19.596Z</updated>
-    
-    <content type="html"><![CDATA[<p>树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则<br>每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-6d891bdd1263935c.png" alt="树"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-7c3f35a82955ca6a.png" alt="转化为二叉树"></p><p>森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点</p><p><img src="https://upload-images.jianshu.io/upload_images/8889168-fbb604d4acf06b26.png" alt="森林"><br><img src="https://upload-images.jianshu.io/upload_images/8889168-58cdc4564e602f1c.png" alt="转化为二叉树"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则&lt;br&gt;每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="874数据结构复习" scheme="http://yoursite.com/categories/874%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
-    
-    
-      <category term="树" scheme="http://yoursite.com/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中序遍历建立线索二叉树</title>
-    <link href="http://yoursite.com/2019/08/24/datastructure00/"/>
-    <id>http://yoursite.com/2019/08/24/datastructure00/</id>
-    <published>2019-08-24T12:28:32.000Z</published>
-    <updated>2019-08-31T14:52:58.531Z</updated>
-    
-    <content type="html"><![CDATA[<p>为什么使用中序遍历来建立线索二叉树？</p><p>因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。</p><a id="more"></a><p>中序遍历线索二叉树的特点<br><img src="https://upload-images.jianshu.io/upload_images/8889168-a0a90c51436b4892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中序遍历线索二叉树"><br>这里需要理解一下指针不为线索时的情况（中序遍历）</p><p>建立代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InThread</span><span class="params">(ThreadTree &amp;p,ThreadTree &amp;pre)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">InThread(p-&gt;lchild,pre);</span><br><span class="line"><span class="keyword">if</span> (p-&gt;lchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">p-&gt;lchild = pre;</span><br><span class="line">p-&gt;tap=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (pre!=<span class="literal">NULL</span> &amp;&amp; p-&gt;rchild==<span class="literal">NULL</span>)&#123;</span><br><span class="line">pre-&gt;rchild = p;</span><br><span class="line">pre-&gt;rtag = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">pre = p;</span><br><span class="line">InThread(p-&gt;rchild,pre);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。</p><!--more-->]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为什么使用中序遍历来建立线索二叉树？&lt;/p&gt;
-&lt;p&gt;因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。&lt;/p&gt;
     
     </summary>
     
