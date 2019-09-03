@@ -256,7 +256,7 @@
   <entry>
     <title><![CDATA[中序遍历建立线索二叉树]]></title>
     <url>%2F2019%2F08%2F24%2Fdatastructure00%2F</url>
-    <content type="text"><![CDATA[为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;p,ThreadTree &amp;pre)&#123; if(p!=NULL)&#123; InThread(p-&gt;lchild,pre); if (p-&gt;lchild==NULL)&#123; p-&gt;lchild = pre; p-&gt;tap=1; &#125; if (pre!=NULL &amp;&amp; p-&gt;rchild==NULL)&#123; pre-&gt;rchild = p; pre-&gt;rtag = 1; &#125; pre = p; InThread(p-&gt;rchild,pre); &#125;&#125; 理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。]]></content>
+    <content type="text"><![CDATA[为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;p,ThreadTree &amp;pre)&#123; if(p!=NULL)&#123; InThread(p-&gt;lchild,pre); if (p-&gt;lchild==NULL)&#123; p-&gt;lchild = pre; p-&gt;tap=1; &#125; if (pre!=NULL &amp;&amp; p-&gt;rchild==NULL)&#123; pre-&gt;rchild = p; pre-&gt;rtag = 1; &#125; pre = p; InThread(p-&gt;rchild,pre); &#125;&#125; 理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。\]]></content>
       <categories>
         <category>874数据结构复习</category>
       </categories>
