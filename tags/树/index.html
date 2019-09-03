@@ -54,23 +54,16 @@
   };
 </script>
 
-  <meta name="description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
-<meta name="keywords" content="概念理解">
-<meta property="og:type" content="article">
-<meta property="og:title" content="malloc函数的理解">
-<meta property="og:url" content="http://yoursite.com/2019/08/28/algorithm05/index.html">
+  <meta name="keywords" content="874复习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="风拂流苏亦浩然">
+<meta property="og:url" content="http://yoursite.com/tags/树/index.html">
 <meta property="og:site_name" content="风拂流苏亦浩然">
-<meta property="og:description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8889168-38974a7e7f0e222f.png">
-<meta property="og:updated_time" content="2019-08-31T13:45:24.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="malloc函数的理解">
-<meta name="twitter:description" content="在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。先分享这样的一段程序.">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png">
+<meta name="twitter:title" content="风拂流苏亦浩然">
   <link rel="alternate" href="/atom.xml" title="风拂流苏亦浩然" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/28/algorithm05/">
+  <link rel="canonical" href="http://yoursite.com/tags/树/">
 
 
 <script id="page-configurations">
@@ -78,13 +71,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
+    isPost: false,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>malloc函数的理解 | 风拂流苏亦浩然</title>
+  <title>标签: 树 | 风拂流苏亦浩然</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -226,6 +219,27 @@
 
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
 </nav>
   <div class="site-search">
     <div class="popup search-popup">
@@ -264,161 +278,205 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/algorithm05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="L1nxi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/L1nxi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风拂流苏亦浩然">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">malloc函数的理解
-
-          
+  <div class="post-block tag">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">树<small>标签</small>
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-28 08:04:53" itemprop="dateCreated datePublished" datetime="2019-08-28T08:04:53+08:00">2019-08-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-31 21:45:24" itemprop="dateModified" datetime="2019-08-31T21:45:24+08:00">2019-08-31</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
       
-        <p>在数据结构里经常会用到malloc函数，但是它的功能我一直都是很模糊的，今天在看数据结构的时候忽然感觉到顿悟，有一些心得和大家分享一下。<br>先分享这样的一段程序.</p>
-<a id="more"></a>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;NODE,*pNode;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pNode Pa;</span><br><span class="line">    pNode Pb=(pNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));</span><br><span class="line">    <span class="comment">//printf("%d,%d,%d",Pa,Pa-&gt;data,Pa-&gt;next);</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d,%d"</span>,Pb,Pb-&gt;data,Pb-&gt;next);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>程序的输出结果是这样的<br><img src="http://upload-images.jianshu.io/upload_images/8889168-81bdc3a117fc102f.png" alt="image.png"><br>如果把第一个printf取消注释的话<br>运行的结果是这样的<br><img src="http://upload-images.jianshu.io/upload_images/8889168-38974a7e7f0e222f.png" alt="image.png"><br>由此可见malloc函数的作用<br>下面说一下我对这个函数的一点理解<br>malloc函数是为指向结构体的指针指向了堆内存里面的一个结构体变量，而这个结构体里面的值是系统自动分配的值。如果没用使用malloc函数，那么仅仅是开辟了一块栈内存空间，并没用一个可以指的结构体变量，换做Java来思考的话就相当于你并没有实例化对象，malloc就是实例化对象的一个过程。</p>
+  
+  
 
+  
+    
+    <div class="collection-year">
+      <h1 class="collection-header">2019</h1>
     </div>
+  
 
-    
-    
-    
-      
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
+      <h2 class="post-title">
         
-      
-        <div id="reward-container">
-  <div></div>
-  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
-  </button>
-  <div id="qr" style="display: none;">
+          <a class="post-title-link" href="/2019/08/27/datastructure05/" itemprop="url">
+            <span itemprop="name">二叉树的应用—平衡二叉树</span>
+          </a>
         
-      
-      <div style="display: inline-block">
-        <img src="/images/wechatpay.png" alt="L1nxi 微信支付">
-        <p>微信支付</p>
-      </div>
-        
-      
-      <div style="display: inline-block">
-        <img src="/images/alipay.png" alt="L1nxi 支付宝">
-        <p>支付宝</p>
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-27T17:08:54+08:00"
+              content="2019-08-27">
+          08-27
+        </time>
       </div>
 
-  </div>
-</div>
-
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/概念理解/" rel="tag"># 概念理解</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2019/08/28/algorithm04/" rel="next" title="数据结构里简易的栈">
-                  <i class="fa fa-chevron-left"></i> 数据结构里简易的栈
-                </a>
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/28/algorithm06/" rel="prev" title="malloc函数的理解补充">
-                  malloc函数的理解补充 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </div>
-  
-  
-  
+    </header>
   </article>
 
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/08/26/datastructure04/" itemprop="url">
+            <span itemprop="name">树的应用—二叉排序树</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-26T16:58:13+08:00"
+              content="2019-08-26">
+          08-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/08/26/datastructure03/" itemprop="url">
+            <span itemprop="name">树的应用—并查集</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-26T16:58:07+08:00"
+              content="2019-08-26">
+          08-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/08/26/datastructure02/" itemprop="url">
+            <span itemprop="name">树和森林的遍历</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-26T16:58:01+08:00"
+              content="2019-08-26">
+          08-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/08/26/datastructure01/" itemprop="url">
+            <span itemprop="name">森林，树，二叉树转化</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-26T16:57:55+08:00"
+              content="2019-08-26">
+          08-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/08/24/datastructure00/" itemprop="url">
+            <span itemprop="name">中序遍历建立线索二叉树</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-08-24T20:28:32+08:00"
+              content="2019-08-24">
+          08-24
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -437,11 +495,6 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">

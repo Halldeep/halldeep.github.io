@@ -93,10 +93,10 @@
     <url>%2F2019%2F08%2F27%2Fdatastructure05%2F</url>
     <content type="text"><![CDATA[平衡二叉树：AVL，在任意结点的平衡因子的绝对值不超过一。平衡因子：左子树高度减去右子树高度 计算高度为h的最小平衡二叉树的节点数Nh 平衡二叉树的判断代码如下 1234567891011121314151617181920212223242526void Judge_AVL(BiTree bt,int &amp;Balance,int &amp;h)&#123; //使用引用类型是因为要修改值的原因 int bl=0,br=0,hl=0,hr=0; if (bt == NULL)&#123; h = 0; Balance = 1; &#125; else if (bt-&gt;lchild == NULL&amp;&amp;bt-&gt;rchild == NULL)&#123; h = 1; Balance = 1; &#125; else&#123; Judge_AVL(bt-&gt;lchild,bl,hl); Judge_AVL(bt-&gt;rchild,br,hr); if (hl &gt; hr)&#123;//判断那个高，选哪个做整个树的高度 h = hl+1; &#125;else&#123; h = hr+1; &#125; if (abs(hr-hl) &lt; 2&amp;&amp;bl = 1&amp;&amp;br = 1)&#123; //根结点平衡，以及左右子树均平衡 Balance = 1; &#125;else Balance = 0; &#125;&#125; 平衡二叉树的插入基本的思想是先插入，后调整，注意每次调整一定要是最小不平衡子树方可 图解很好理解，多看几遍就好* 方法1 LL平衡旋转（右单旋转）在结点A的左孩子的左子树上插入新节点（左子树的左右结点都可以，不受影响）让B结点上去，B的右结点更改为A，B真正的有节点改为A的左结点，因为B本身是A的左结点 方法2 RR平衡旋转（左单旋转）在结点A的右孩子的右子树上插入新节点（右子树的左右结点都可以，不受影响） 跟右旋一致，可以先变化为方法1的树，操作结束后再变换为原树。 方法3 LR平衡旋转（先左后右双旋转）在结点A的左孩子的右子树插入了新的结点 方法4 RL平衡旋转（先右后左双旋转）在在结点A的右孩子的左子树插入了新的结点]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
@@ -104,10 +104,10 @@
     <url>%2F2019%2F08%2F26%2Fdatastructure04%2F</url>
     <content type="text"><![CDATA[二叉排序树可以为空树，也可以为非空树，为非空树时有以下特点 若左子树非空，则左子树上所有结点值均小于根结点的值 若右子树非空，则右子树上所有结点值均大于根结点的值 注意这里没有等于，也就是说二叉排序树中默认是没有相同值结点的* 左，右子树本身也是一颗二叉排序树 二叉排序树进行中序遍历后，序列即为一个递增的有序序列 查找操作二叉树非空时，查找根结点，若相等则查找成功；若不等，则小于根结点查左子树，大于查右子树当查找到叶子结点还未找到，查找失败代码实现，看懂就行插入操作若二叉排序树为空时，直接插入结点若二叉排序树非空时，值小于根结点值时，插入左子树；大于插入右子树，等于不能插入。（使用递归来实现） 1234567891011121314151617int BST_Insert(BiTree &amp;T,KeyType k)&#123; if (T == NULL)&#123; T = (BiTree)malloc(sizeof(BSTNode)); T-&gt;key = k; T-&gt;lchild = T-&gt;rchild = NULL; return 1; &#125; else if (k == T-&gt;key)&#123; return 0; &#125; else if (k &lt; T-key)&#123; return BSTNode(T-&gt;lchild,k); &#125; else if (k &gt; T-key)&#123; return BSTNode(T-&gt;rchild,k); &#125;&#125; 构造二叉排序树构造的过程是一个动态的过程，不断的调用插入函数来进行构造读入一个元素并建立结点，若二叉树为空将其作为根结点；若二叉排序树非空，小于插左子树，大于插右子树。 123456789void Create_BST(BiTree &amp;T,keyType str[],int n)&#123;//str存放插入的元素，n为插入的个数 T = NULL; int i = 0; while(i&lt;n)&#123; BST_Insert(T,str[i]); i++; &#125;&#125; 删除 若删除结点为叶子结点，则直接删除 若删除结点z有一颗子树y，那么选取这棵子树y代替该结点z的位置 若删除结点z有两颗子树，直接让z的中序遍历直接后继x，直接代替z的位置，然后执行删除x的操作，以此类推。最终会变成上面的两种情况。 删除一个结点，然后再插入该结点，所得到的二叉排序树可能会不一样]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
@@ -115,10 +115,10 @@
     <url>%2F2019%2F08%2F26%2Fdatastructure03%2F</url>
     <content type="text"><![CDATA[并查集是一种简单的集合表示使用树的双亲表示法作为并查集的存储结构，通常使用数组元素的下标代表元素名，用根结点的下标代表子集合名，根结点的双亲结点为负数 操作如下 将集合中的所有元素初始化为只有一个单元素的子集合当集合变为一下情况时，存储结构变化如下 0的树上共有四个元素，所以0位置的双亲值为4，因为是根结点，值为-4。3的双亲结点为2，所以双亲值为2。剩余元素以此类推 代码实现并查集的操作这里的S数组存储的是并查集里双亲结点的下标 1234567891011121314151617181920#define SIZE 100int UFset[SIZE]void Initial(int S[])&#123; for (int i = 0; i &lt; size; ++i) &#123; S[i] = -1; &#125;&#125;int Find(int S[],int x)&#123;//要找出的是x元素所在树的根结点，因为根结点双亲值为负 while(S[x]&gt;=0) x = S[x]; return x;&#125;void Union(int S[],int Root1,int Root2)&#123;//合并就是把Roo2子集变为Root1的子集 S[Root2] = Root1;&#125; 合并操作图解]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
@@ -126,10 +126,10 @@
     <url>%2F2019%2F08%2F26%2Fdatastructure02%2F</url>
     <content type="text"><![CDATA[树的遍历 先根遍历若树非空，则先访问根结点，再按从左到右的顺序遍历根结点的每棵子树 先根遍历：RADEBCFGHK将其转化为二叉树之后，先序遍历：RADEBCFGHK 树的先根遍历序列与这棵树对应二叉树的先序遍历序列相同* 后根遍历若树非空，则先按从左到右的顺序遍历根结点的每颗子树，再访问根结点后根遍历序列：DEABGHKFCR将其转化为二叉树之后，中序遍历：DEABGHKFCR 树的后根遍历序列与这棵树对应二叉树的中序遍历序列相同* 这里没有中根遍历是因为树并不是像二叉树一样分为左右子树，无法中根遍历* 层次遍历按照标号的顺序，由上至下，由左至右的顺序，一层一层遍历 森林的遍历 先序遍历 等同于将森林转化为二叉树之后的先序遍历* 中序遍历 等同于将森林转化为二叉树之后的中序遍历*内容过于简单，不再多余赘述了]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
@@ -137,10 +137,10 @@
     <url>%2F2019%2F08%2F26%2Fdatastructure01%2F</url>
     <content type="text"><![CDATA[树与二叉树之间的转换依靠的原则是左孩子，右兄弟的原则每个结点左指针指向第一个孩子结点，右指针指向树中的相邻结点 森林与二叉树之间的转换也是同样的道理，只不过根结点的相邻结点即为相邻树的根结点]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
@@ -148,10 +148,10 @@
     <url>%2F2019%2F08%2F24%2Fdatastructure00%2F</url>
     <content type="text"><![CDATA[为什么使用中序遍历来建立线索二叉树？ 因为中序遍历方便寻找前驱节点和后继节点，而先序遍历不方便找后继节点，后序遍历不方便找前驱节点和后继节点。 中序遍历线索二叉树的特点这里需要理解一下指针不为线索时的情况（中序遍历） 建立代码 12345678910111213141516void InThread(ThreadTree &amp;p,ThreadTree &amp;pre)&#123; if(p!=NULL)&#123; InThread(p-&gt;lchild,pre); if (p-&gt;lchild==NULL)&#123; p-&gt;lchild = pre; p-&gt;tap=1; &#125; if (pre!=NULL &amp;&amp; p-&gt;rchild==NULL)&#123; pre-&gt;rchild = p; pre-&gt;rtag = 1; &#125; pre = p; InThread(p-&gt;rchild,pre); &#125;&#125; 理解不来，背下即可，与中序遍历相似。只不过在递归中加入了线索化的过程。]]></content>
       <categories>
-        <category>874复习</category>
+        <category>874数据结构复习</category>
       </categories>
       <tags>
-        <tag>874数据结构复习</tag>
+        <tag>树</tag>
       </tags>
   </entry>
 </search>
