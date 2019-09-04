@@ -54,22 +54,22 @@
   };
 </script>
 
-  <meta name="description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述  dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷  s数组表示的是计算完成的顶点，这里0计算完成，对应数组值置为1  path数组表示的是0这个顶点能达到的顶点，将其置为0点的数组下标0    di">
+  <meta name="description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述">
 <meta name="keywords" content="图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图—应用（最短路径）">
 <meta property="og:url" content="http://yoursite.com/2019/09/03/datastructure15/index.html">
 <meta property="og:site_name" content="风拂流苏亦浩然">
-<meta property="og:description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述  dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷  s数组表示的是计算完成的顶点，这里0计算完成，对应数组值置为1  path数组表示的是0这个顶点能达到的顶点，将其置为0点的数组下标0    di">
+<meta property="og:description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-c6be64cdaac12b99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-7b910c5d3efc42b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8889168-cd075aac1af1684c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-03T13:07:00.941Z">
+<meta property="og:updated_time" content="2019-09-04T01:45:20.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图—应用（最短路径）">
-<meta name="twitter:description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述  dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷  s数组表示的是计算完成的顶点，这里0计算完成，对应数组值置为1  path数组表示的是0这个顶点能达到的顶点，将其置为0点的数组下标0    di">
+<meta name="twitter:description" content="最短路径：两个顶点之间带权路径长度最短的路径为最短路径寻找图中的最短路径方法  Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）实例描述">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <link rel="alternate" href="/atom.xml" title="风拂流苏亦浩然" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/09/03/datastructure15/">
@@ -300,11 +300,19 @@
                 
               
 
-              <time title="创建时间：2019-09-03 21:06:18 / 修改时间：21:07:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:06:18+08:00">2019-09-03</time>
+              <time title="创建时间：2019-09-03 21:06:18" itemprop="dateCreated datePublished" datetime="2019-09-03T21:06:18+08:00">2019-09-03</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-04 09:45:20" itemprop="dateModified" datetime="2019-09-04T09:45:20+08:00">2019-09-04</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -334,7 +342,9 @@
       
         <p><strong>最短路径</strong>：两个顶点之间带权路径长度最短的路径为最短路径<br>寻找图中的最短路径方法</p>
 <ul>
-<li><p>Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）<br>实例描述<br><img src="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"></p>
+<li><p>Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）<br>实例描述</p>
+<a id="more"></a>
+<p><img src="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"></p>
 </li>
 <li><p>dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷</p>
 </li>

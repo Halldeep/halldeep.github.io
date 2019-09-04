@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-03T13:07:00.941Z</updated>
+  <updated>2019-09-04T01:45:20.910Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,18 +21,15 @@
     <link href="http://yoursite.com/2019/09/03/datastructure15/"/>
     <id>http://yoursite.com/2019/09/03/datastructure15/</id>
     <published>2019-09-03T13:06:18.000Z</published>
-    <updated>2019-09-03T13:07:00.941Z</updated>
+    <updated>2019-09-04T01:45:20.910Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>最短路径</strong>：两个顶点之间带权路径长度最短的路径为最短路径<br>寻找图中的最短路径方法</p><ul><li><p>Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）<br>实例描述<br><img src="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"></p></li><li><p>dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷</p></li><li><p>s数组表示的是计算完成的顶点，这里0计算完成，对应数组值置为1</p></li><li><p>path数组表示的是0这个顶点能达到的顶点，将其置为0点的数组下标0<br><img src="https://upload-images.jianshu.io/upload_images/8889168-c6be64cdaac12b99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第一轮"></p></li></ul><ul><li>dist数组：其中除去0点值，最小值为3，所以把顶点2加入到已经计算完成的顶点集中，顶点2可以达到的顶点为4，0-&gt;2-&gt;4=7，小于0-&gt;4=8，所以4对应的下标更改为7。</li><li>s数组：将顶点2对应的位置赋值为1，表示顶点2计算完成</li><li>path：将顶点4对应的下标赋值为2，因为是从顶点2到达的顶点4<br><img src="https://upload-images.jianshu.io/upload_images/8889168-7b910c5d3efc42b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="以此类推得到结果"></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/8889168-cd075aac1af1684c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根据各个数组的数值获得信息"></p>]]></content>
+    <content type="html"><![CDATA[<p><strong>最短路径</strong>：两个顶点之间带权路径长度最短的路径为最短路径<br>寻找图中的最短路径方法</p><ul><li><p>Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）<br>实例描述</p><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/8889168-8dba651516c4a8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始化"></p></li><li><p>dist数组存放的是第一个顶点0，到其他顶点之间的连线的权值，如果不存在则为无穷</p></li><li><p>s数组表示的是计算完成的顶点，这里0计算完成，对应数组值置为1</p></li><li><p>path数组表示的是0这个顶点能达到的顶点，将其置为0点的数组下标0<br><img src="https://upload-images.jianshu.io/upload_images/8889168-c6be64cdaac12b99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第一轮"></p></li></ul><ul><li>dist数组：其中除去0点值，最小值为3，所以把顶点2加入到已经计算完成的顶点集中，顶点2可以达到的顶点为4，0-&gt;2-&gt;4=7，小于0-&gt;4=8，所以4对应的下标更改为7。</li><li>s数组：将顶点2对应的位置赋值为1，表示顶点2计算完成</li><li>path：将顶点4对应的下标赋值为2，因为是从顶点2到达的顶点4<br><img src="https://upload-images.jianshu.io/upload_images/8889168-7b910c5d3efc42b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="以此类推得到结果"></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/8889168-cd075aac1af1684c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根据各个数组的数值获得信息"></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;strong&gt;最短路径&lt;/strong&gt;：两个顶点之间带权路径长度最短的路径为最短路径&lt;br&gt;寻找图中的最短路径方法&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;最短路径&lt;/strong&gt;：两个顶点之间带权路径长度最短的路径为最短路径&lt;br&gt;寻找图中的最短路径方法&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）&lt;br&gt;实例描述&lt;br&gt;&lt;img src=&quot;
-      
+&lt;li&gt;&lt;p&gt;Dijksta：带权图单源最短路径（一个顶点为源点，到其他各个顶点的最短路径）&lt;br&gt;实例描述&lt;/p&gt;
     
     </summary>
     
